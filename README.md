@@ -54,7 +54,7 @@ nasaflickr/
 |    |    ├── containers 
 |    |    |		└── App.js
 |    |    |		
-|	   |	  ├── interface 
+|	  |	  ├── interface 
 |    |    |		└── PhotoResult.js				    * Encapsulates all pertinent information for photo results.     
 |    |    |	                                  This includes array of photos, total photo count, page.
 |	   |	  ├── reducers 
@@ -66,11 +66,11 @@ nasaflickr/
 |    |    |		└── photos.spec.js
 |	   |	  |		└── sites.js					        * Stores the NASA sites' info in an array
 |	   |	  |
-|	   |	  ├── sagas
-|	   |	  |		└── requestHelper.js			      * Makes REST calls to Flickr
-|	   |	  |
-|	   |	  ├── store
-|	   |	  		└── configureStore.js
+|	 |	  ├── sagas
+|	 |	  |		└── requestHelper.js			      * Makes REST calls to Flickr
+|	 |	  |
+|	 |	  ├── store
+|	 |	  		└── configureStore.js
 |	   |	  
 |    |    
 |    ├── customTheme.js                     * Contain all custom styles for Material UI
