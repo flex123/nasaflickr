@@ -25,6 +25,7 @@ export const styles = {
     height: '70px',
     marginRight: '20px',
     marginLeft: '20px'
+
   },
   //  ImageThumbnail.js
   thumbnail: {
@@ -68,8 +69,8 @@ export const styles = {
     flexWrap: 'wrap',
     justifyContent: 'center',
     minHeight: '0px',
-    marginBottom: '10px',
-    marginTop: '10px'
+    paddingBottom: '10px',
+    paddingTop: '10px'
   },
   iconStyle: {
     margin: '10px',
