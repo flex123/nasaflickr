@@ -97,5 +97,5 @@ nasaflickr/
 
 # Components Used
 * react
-* react-redux
+* react-redux (https://github.com/redux-saga/redux-saga)
 * redux-saga
