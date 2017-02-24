@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^0.15.3",
     "classnames": "^2.2.5",
     "es6-shim": "^0.35.3",
     "lodash": "^4.17.4",
@@ -85,7 +86,7 @@
       "xo-space/esnext"
     ],
     "rules": {
-       "react/forbid-component-props": 0
+      "react/forbid-component-props": 0
     },
     "parser": "babel-eslint"
   }

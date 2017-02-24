@@ -3,8 +3,9 @@
 import * as types from '../constants/ActionTypes';
 import {put, take, fork} from 'redux-saga/effects';
 import {PhotoResult} from '../interface/PhotoResult';
+import axios from 'axios';
 
-const OAUTH_CONSUMER_KEY = 'cccccccccccccccccccccccc';
+const OAUTH_CONSUMER_KEY = 'cccccccccccccccccccccccccc';
 const API_ENDPOINT = 'https://api.flickr.com/services/rest';
 
 const formatPhoto = photo => {
@@ -15,22 +16,20 @@ const formatPhoto = photo => {
 */
 const fetchUserPhotos = (userId, searchText, page, sortValue) => {
   const endpoint = API_ENDPOINT.concat('?format=json&method=flickr.photos.search&nojsoncallback=1&oauth_consumer_key=').concat(OAUTH_CONSUMER_KEY).concat('&user_id=').concat(userId).concat('&text=').concat(searchText).concat('&per_page=50').concat('&page=').concat(page).concat('&sort=').concat(sortValue);
-  return fetch(endpoint).then(response => {
-    return response.json().then(result => {
-      if (result.stat === 'fail') {
-        throw result.message;
-      }
-      const photos = [];
-      result.photos.photo.forEach(photo => {
-        photos.push(formatPhoto(photo));
-      });
-      const photoResult = new PhotoResult();
-      photoResult.page = result.photos.page;
-      photoResult.total = Number.parseInt(result.photos.total, 10);
-      photoResult.pages = result.photos.pages;
-      photoResult.photos = photos;
-      return photoResult;
+  return axios.get(endpoint).then(response => {
+    if (response.data.stat === 'fail') {
+      throw response.data.message;
+    }
+    const photos = [];
+    response.data.photos.photo.forEach(photo => {
+      photos.push(formatPhoto(photo));
     });
+    const photoResult = new PhotoResult();
+    photoResult.page = response.data.photos.page;
+    photoResult.total = Number.parseInt(response.data.photos.total, 10);
+    photoResult.pages = response.data.photos.pages;
+    photoResult.photos = photos;
+    return photoResult;
   });
 };
 
@@ -38,19 +37,17 @@ const fetchUserPhotos = (userId, searchText, page, sortValue) => {
 */
 const fetchFullSizePhoto = photoId => {
   const endpoint = API_ENDPOINT.concat('?format=json&method=flickr.photos.getSizes&nojsoncallback=1&oauth_consumer_key=').concat(OAUTH_CONSUMER_KEY).concat('&photo_id=').concat(photoId);
-  return fetch(endpoint).then(response => {
-    return response.json().then(photoSizes => {
-      if (photoSizes.stat === 'fail') {
-        throw photoSizes.message;
+  return axios.get(endpoint).then(response => {
+    if (response.data.stat === 'fail') {
+      throw response.data.message;
+    }
+    let source = '';
+    response.data.sizes.size.forEach(size => {
+      if (size.label === 'Large') {
+        source = size.source;
       }
-      let source = '';
-      photoSizes.sizes.size.forEach(size => {
-        if (size.label === 'Large') {
-          source = size.source;
-        }
-      });
-      return {id: photoId, url: source};
     });
+    return {id: photoId, url: source};
   });
 };
 

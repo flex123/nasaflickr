@@ -61,6 +61,7 @@ module.exports = {
     filename: 'index.js'
   },
   entry: [
+    'babel-polyfill',
     'webpack/hot/dev-server',
     'webpack-hot-middleware/client',
     `./${conf.path.src('index')}`
