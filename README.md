@@ -11,7 +11,7 @@ This is a simple app that can be used to see photos that were uploaded to Flickr
 
 
 
-## File Structure of App
+# File Structure of App
 
 ```
 nasaflickr/
