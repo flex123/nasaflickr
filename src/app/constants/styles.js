@@ -109,7 +109,8 @@ export const styles = {
     backgroundColor: 'rgb(0,0,0)',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    overflowY: 'scroll'
   },
   nextButton: {
     position: 'absolute',
