@@ -106,3 +106,9 @@ nasaflickr/
 * Material-UI (http://www.material-ui.com)
 * fountainjs.io (http://fountainjs.io/)
 
+# To install this app locally
+
+* Clone this repository: `git clone https://github.com/flex123/nasaflickr.git`.
+* Run `npm install` from the project root.
+* Run `npm serve run` in a terminal from the project root.
+* Access the app at http://localhost:3000
