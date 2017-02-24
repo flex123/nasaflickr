@@ -50,7 +50,7 @@ export const styles = {
     justifyContent: 'flex-end'
   },
   countInfo: {
-    fontSize: '15px',
+    fontSize: '16px',
     margin: '20px',
     fontWeight: '500'
   },
