@@ -96,3 +96,6 @@ nasaflickr/
 
 
 # Components Used
+* react
+* react-redux
+* redux-saga
