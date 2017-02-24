@@ -92,3 +92,7 @@ nasaflickr/
 ├── README.md                   
 ├── gulpfile.js                        
 ├── package.json                       
+```
+
+
+# Components Used
