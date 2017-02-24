@@ -18,7 +18,8 @@ class MainSection extends Component {
       querying: false,
       imageSliderOpened: false,
       selectedPhoto: 0,
-      sortValue: 'date-posted-desc'
+      sortValue: 'date-posted-desc',
+      lastScrollPos: 0
     };
     this.handleScroll = this.handleScroll.bind(this);
     this.handleSliderOpen = this.handleSliderOpen.bind(this);
@@ -32,7 +33,6 @@ class MainSection extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps.photoResult);
     if (nextProps.selectedSite.id !== this.props.selectedSite.id || nextProps.searchText !== this.props.searchText) {
       this.setState({page: 1, selectedPhoto: 0, querying: true});
       this.props.actions.removePhotos();
@@ -43,14 +43,27 @@ class MainSection extends Component {
 
   //  Automatically search for the next page of search result when a user scrolls to the bottom of the page
   handleScroll() {
+    const {onHandleToggleHeader, photoResult, selectedSite, searchText} = this.props;
     const el = document.getElementById('photosContainer');
     const offset = 20;
-    if (((el.scrollHeight - offset) < (el.scrollTop + el.clientHeight)) && !this.state.querying && (this.props.photoResult.photos.length !== this.props.photoResult.total)) {
+    if (((el.scrollHeight - offset) < (el.scrollTop + el.clientHeight)) && !this.state.querying && (photoResult.photos.length !== photoResult.total)) {
       this.setState({
         querying: true,
         page: this.state.page + 1
       });
-      this.props.actions.getUserPhotos(this.props.selectedSite.id, this.props.searchText, this.state.page, this.state.sortValue);
+      this.props.actions.getUserPhotos(selectedSite.id, searchText, this.state.page, this.state.sortValue);
+    }
+    //  Hide header when scrolling down and show header when scrolling up.
+    if (this.state.lastScrollPos > el.scrollTop) {
+      this.setState({
+        lastScrollPos: el.scrollTop
+      });
+      onHandleToggleHeader(true);
+    } else if (this.state.lastScrollPos < el.scrollTop) {
+      this.setState({
+        lastScrollPos: el.scrollTop
+      });
+      onHandleToggleHeader(false);
     }
   }
 
@@ -102,7 +115,8 @@ MainSection.propTypes = {
   photoResult: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired,
   searchText: PropTypes.string.isRequired,
-  selectedSite: PropTypes.object.isRequired
+  selectedSite: PropTypes.object.isRequired,
+  onHandleToggleHeader: PropTypes.func.isRequired
 };
 
 function mapStateToProps(state) {

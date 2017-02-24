@@ -38,7 +38,7 @@ class Header extends Component {
   }
 
   render() {
-    const {sites} = this.props;
+    const {sites, showHeader} = this.props;
     const centers = [];
     sites.forEach(site => {
       centers.push(<MenuItem value={site} key={site.id} primaryText={site.name}/>);
@@ -46,9 +46,12 @@ class Header extends Component {
     const widget = (<SelectField labelStyle={styles.label} floatingLabelText="NASA Site" value={this.state.selectedSite} autoWidth onChange={this.handleSelectChange}>
       {centers}
     </SelectField>);
-
+    let style = {};
+    if (!showHeader) {
+      style = {display: 'none'};
+    }
     return (
-      <div>
+      <div style={style}>
         <Toolbar className="toolBar">
           <ToolbarGroup firstChild>
             <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/928px-NASA_logo.svg.png"/>
@@ -69,7 +72,8 @@ class Header extends Component {
 Header.propTypes = {
   onHandleSelectSite: PropTypes.func.isRequired,
   onHandleSearch: PropTypes.func.isRequired,
-  sites: PropTypes.array.isRequired
+  sites: PropTypes.array.isRequired,
+  showHeader: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {

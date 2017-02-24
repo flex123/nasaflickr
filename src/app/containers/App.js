@@ -19,10 +19,11 @@ class App extends Component {
 
   constructor(context, props) {
     super(context, props);
-    this.state = {selectedSite: {}, searchText: ''};
+    this.state = {selectedSite: {}, searchText: '', showHeader: true};
     this.handleSelectSite = this.handleSelectSite.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleErrorClose = this.handleErrorClose.bind(this);
+    this.handleToggleHeader = this.handleToggleHeader.bind(this);
   }
 
   handleSelectSite(selectedSite) {
@@ -37,12 +38,17 @@ class App extends Component {
     this.props.actions.resetError();
   }
 
+  handleToggleHeader(showHeader) {
+    console.log(showHeader);
+    this.setState({showHeader});
+  }
+
   render() {
     const {errors} = this.props;
     return (
       <div style={styles.root}>
-        <Header onHandleSelectSite={this.handleSelectSite} onHandleSearch={this.handleSearch}/>
-        <MainSection searchText={this.state.searchText} selectedSite={this.state.selectedSite}/>
+        <Header onHandleSelectSite={this.handleSelectSite} onHandleSearch={this.handleSearch} showHeader={this.state.showHeader}/>
+        <MainSection searchText={this.state.searchText} selectedSite={this.state.selectedSite} onHandleToggleHeader={this.handleToggleHeader}/>
         <Snackbar open={Object.keys(errors).length > 0} message={errors.message} autoHideDuration={5000} onRequestClose={this.handleErrorClose}/>
       </div>
     );
