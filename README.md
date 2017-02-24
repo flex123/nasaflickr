@@ -54,18 +54,18 @@ nasaflickr/
 |    |    ├── containers 
 |    |    |		└── App.js
 |    |    |		
-|	  |	  ├── interface 
+|	 |	  ├── interface 
 |    |    |		└── PhotoResult.js				    * Encapsulates all pertinent information for photo results.     
 |    |    |	                                  This includes array of photos, total photo count, page.
-|	   |	  ├── reducers 
+|	 |	  ├── reducers 
 |    |    |		└── errors.js                 * Stores error information
-|	   |	  |		└── fullSizePhotos.js			    * Stores the full size info of photos in an array
+|	 |	  |		└── fullSizePhotos.js			    * Stores the full size info of photos in an array
 |    |    |		└── fullSizePhotos.spec.js
 |    |    |		└── index.js					        * Collection of reducers
 |	   |	  |   └── photos.js					        * Stores the photo search results
 |    |    |		└── photos.spec.js
-|	   |	  |		└── sites.js					        * Stores the NASA sites' info in an array
-|	   |	  |
+|	 |	  |		└── sites.js					        * Stores the NASA sites' info in an array
+|	 |	  |
 |	 |	  ├── sagas
 |	 |	  |		└── requestHelper.js			      * Makes REST calls to Flickr
 |	 |	  |
