@@ -7,6 +7,8 @@ This is a simple app that can be used to see photos that were uploaded to Flickr
 * NASA Langley
 * NASA Orion Spacecraft
 
+Demo is available at (https://nasaflickr.herokuapp.com/)
+
 # Screenshots
 
 
@@ -97,5 +99,7 @@ nasaflickr/
 
 # Components Used
 * react
-* react-redux (https://github.com/redux-saga/redux-saga)
-* redux-saga
+* react-redux (https://github.com/reactjs/react-redux)
+* redux-saga (https://github.com/redux-saga/redux-saga)
+* Material-UI (http://www.material-ui.com)
+
