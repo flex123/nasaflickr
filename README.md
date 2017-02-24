@@ -10,6 +10,8 @@ This is a simple app that can be used to see photos that were uploaded to Flickr
 Demo is available at (https://nasaflickr.herokuapp.com/)
 
 # Screenshots
+  <img src="nasaflickr1.png" alt="search">
+  <img src="nasaflickr2.png" alt="slider">
 
 
 
@@ -102,4 +104,5 @@ nasaflickr/
 * react-redux (https://github.com/reactjs/react-redux)
 * redux-saga (https://github.com/redux-saga/redux-saga)
 * Material-UI (http://www.material-ui.com)
+* fountainjs.io (http://fountainjs.io/)
 
