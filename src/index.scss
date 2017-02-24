@@ -4,3 +4,48 @@ html, body, #root {
   overflow:hidden;
   font-family: 'Open Sans', sans-serif;
 }
+
+@media only screen and (min-width: 768px) {
+    /*  tablets and desktop */
+    .logo {
+      width: 70px;
+      height: 70px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .toolBar {
+      padding: 5px;
+      height: 75px !important;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      min-height: 75px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    /*  phones */
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+    .toolBar {
+      padding: 5px;
+      height: 105px !important;
+      display: flex;
+      flex-direction: column;
+      min-height: 105px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (orientation: portrait) {
+    /*  portrait phones */
+    .logo {
+      width: 30px;
+      height: 30px;
+      margin-right: 20px;
+      margin-left: 20px;
+    }
+}

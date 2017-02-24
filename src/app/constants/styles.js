@@ -3,8 +3,12 @@ import {blue500} from 'material-ui/styles/colors';
 export const styles = {
   //  Header.js
   toolBar: {
-    padding: '50px',
-    height: '75px'
+    padding: '5px',
+    height: '75px !important',
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    minHeight: '75px'
   },
   toolBarMainButton: {
     margin: '10px'
@@ -19,7 +23,8 @@ export const styles = {
   logo: {
     width: '70px',
     height: '70px',
-    marginRight: '20px'
+    marginRight: '20px',
+    marginLeft: '20px'
   },
   //  ImageThumbnail.js
   thumbnail: {

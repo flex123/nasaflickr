@@ -49,9 +49,9 @@ class Header extends Component {
 
     return (
       <div>
-        <Toolbar style={styles.toolBar}>
+        <Toolbar className="toolBar">
           <ToolbarGroup firstChild>
-            <img style={styles.logo} src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/928px-NASA_logo.svg.png"/>
+            <img className="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/928px-NASA_logo.svg.png"/>
             {widget}
           </ToolbarGroup>
           <ToolbarGroup >
