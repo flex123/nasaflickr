@@ -62,7 +62,7 @@ nasaflickr/
 |	 |	  |		└── fullSizePhotos.js			    * Stores the full size info of photos in an array
 |    |    |		└── fullSizePhotos.spec.js
 |    |    |		└── index.js					        * Collection of reducers
-|	  |	  |   └── photos.js					        * Stores the photo search results
+|	 |	  |     └── photos.js					        * Stores the photo search results
 |    |    |		└── photos.spec.js
 |	 |	  |		└── sites.js					        * Stores the NASA sites' info in an array
 |	 |	  |
