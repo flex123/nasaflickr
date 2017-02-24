@@ -10,6 +10,8 @@ This is a simple app that can be used to see photos that were uploaded to Flickr
 Demo is available at (https://nasaflickr.herokuapp.com/)
 
 # Screenshots
+  <img src="nasaflickr1.png" alt="search">
+  <img src="nasaflickr2.png" alt="slider">
 
 
 
@@ -102,4 +104,16 @@ nasaflickr/
 * react-redux (https://github.com/reactjs/react-redux)
 * redux-saga (https://github.com/redux-saga/redux-saga)
 * Material-UI (http://www.material-ui.com)
+* fountainjs.io (http://fountainjs.io/)
 
+# To install this app locally
+
+* Clone this repository: `git clone https://github.com/flex123/nasaflickr.git`.
+* Get an API key from Flickr (https://www.flickr.com/services/api/misc.api_keys.html).
+* Update the OAUTH_CONSUMER_KEY field in the src/sagas/requestHelper.js file with the API key from Flickr and save the file. 
+  ```
+  const OAUTH_CONSUMER_KEY = '2432343243242424';
+  ```
+* Run `npm install` from the project root.
+* Run `npm serve run` in a terminal from the project root.
+* Access the app at http://localhost:3000
