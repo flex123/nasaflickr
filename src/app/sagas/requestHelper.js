@@ -4,7 +4,7 @@ import * as types from '../constants/ActionTypes';
 import {put, take, fork} from 'redux-saga/effects';
 import {PhotoResult} from '../interface/PhotoResult';
 
-const OAUTH_CONSUMER_KEY = 'cccccccccccccccccccccccc';
+const OAUTH_CONSUMER_KEY = 'b36870c90dd556871dd907a54393b375';
 const API_ENDPOINT = 'https://api.flickr.com/services/rest';
 
 const formatPhoto = photo => {

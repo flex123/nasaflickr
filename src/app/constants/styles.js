@@ -85,20 +85,19 @@ export const styles = {
     overflowY: 'hidden',
     margin: '5px'
   },
-  image: {
-  },
   overlay: {
     top: '-10px',
     background: 'rgba(0, 0, 0, 0.35)',
     height: '60px'
   },
   title: {
-    fontSize: '18px'
+    fontSize: '18px',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    color: 'white'
   },
   //  ImageSlider.js
-  photo: {
-    maxHeight: '700px'
-  },
   photoContainer: {
     display: 'flex',
     flexDirection: 'row',
@@ -110,13 +109,13 @@ export const styles = {
     left: '0px',
     height: '100%',
     width: '100%',
-    opacity: '0.95',
     zIndex: '1050',
     backgroundColor: 'rgb(0,0,0)',
     display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'center',
-    overflowY: 'scroll'
+    overflowY: 'scroll',
+    overflowX: 'hidden'
   },
   nextButton: {
     position: 'absolute',
@@ -137,9 +136,9 @@ export const styles = {
     width: '60px',
     height: '60px'
   },
-  thumbnails: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center'
+  sliderImageTitle: {
+    fontSize: '18px',
+    color: 'white',
+    margin: '20px'
   }
 };

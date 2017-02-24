@@ -70,7 +70,7 @@ class ImageSlider extends Component {
     const {onHandleCloseSlider, photoResult, fullSizePhotos} = this.props;
     let imgElement = '';
     if (find(fullSizePhotos, {id: photoResult.photos[this.state.selectedPhoto].id})) {
-      imgElement = (<img style={styles.photo} src={find(fullSizePhotos, {id: photoResult.photos[this.state.selectedPhoto].id}).url}/>);
+      imgElement = (<img className="photo" src={find(fullSizePhotos, {id: photoResult.photos[this.state.selectedPhoto].id}).url}/>);
     }
 
     const subset = photoResult.photos.slice((this.state.selectedPhoto < 5 ? 0 : this.state.selectedPhoto - 5), (this.state.selectedPhoto + 5 < photoResult.photos.length ? this.state.selectedPhoto + 5 : photoResult.photos.length));
@@ -90,7 +90,10 @@ class ImageSlider extends Component {
           <div style={styles.photoContainer}>
             {imgElement}
           </div>
-          <div style={styles.thumbnails}>
+          <div style={styles.photoContainer}>
+            <span style={styles.sliderImageTitle}>{photoResult.photos[this.state.selectedPhoto].title}</span>
+          </div>
+          <div className="thumbnails">
             {subset.map(photo => (
               <ImageThumbnail selectThumbnail={this.selectThumbnail} key={photo.id} photo={photo} selected={photo.id === photoResult.photos[this.state.selectedPhoto].id}/>
             ))}
