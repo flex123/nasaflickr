@@ -30,7 +30,7 @@ class MainSection extends Component {
 
   componentDidMount() {
     //  Add infinite scroll to the component
-    document.getElementById('photosContainer').addEventListener('scroll', this.handleScroll, 1000);
+    document.getElementById('photosContainer').addEventListener('scroll', this.handleScroll);
   }
 
   componentWillReceiveProps(nextProps) {
