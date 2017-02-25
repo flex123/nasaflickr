@@ -9,6 +9,7 @@ import MenuItem from 'material-ui/MenuItem';
 import ContentSort from 'material-ui/svg-icons/content/sort';
 import Divider from 'material-ui/Divider';
 import {styles} from '../constants/styles';
+import debounce from 'lodash/debounce';
 
 class MainSection extends Component {
   constructor(props, context) {
@@ -21,7 +22,7 @@ class MainSection extends Component {
       sortValue: 'date-posted-desc',
       lastScrollPos: 0
     };
-    this.handleScroll = this.handleScroll.bind(this);
+    this.handleScroll = debounce(this.handleScroll.bind(this), 100);
     this.handleSliderOpen = this.handleSliderOpen.bind(this);
     this.handleSliderClose = this.handleSliderClose.bind(this);
     this.handleSortChange = this.handleSortChange.bind(this);
@@ -29,7 +30,7 @@ class MainSection extends Component {
 
   componentDidMount() {
     //  Add infinite scroll to the component
-    document.getElementById('photosContainer').addEventListener('scroll', this.handleScroll);
+    document.getElementById('photosContainer').addEventListener('scroll', this.handleScroll, 1000);
   }
 
   componentWillReceiveProps(nextProps) {
